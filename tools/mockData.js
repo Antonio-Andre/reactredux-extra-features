@@ -77,6 +77,11 @@ const authors = [
   { id: 3, name: "Dan Wahlin" }
 ];
 
+const newAuthor = {
+  id: null,
+  name: ""
+};
+
 const newCourse = {
   id: null,
   title: "",
@@ -84,9 +89,44 @@ const newCourse = {
   category: ""
 };
 
+const pokedex = [
+    {
+      "id": 1,
+      "name": "Bulbasaur",
+      "color": "Green",
+      "element": "Grass"
+    },
+    {
+      "id": 2,
+      "name": "Charmander",
+      "color": "Orange",
+      "element": "Fire"
+    },
+    {
+      "id": 3,
+      "name": "Squirtle",
+      "color": "Blue",
+      "element": "Water"
+    },
+    {
+      "id": 4,
+      "name": "Pikachu",
+      "color": "Yellow",
+      "element": "Electric"
+    },
+    {
+      "id": 5,
+      "name": "Eevee",
+      "color": "Brown",
+      "element": "Normal"
+    }
+  ];
+
 // Using CommonJS style export so we can consume via Node (without using Babel-node)
 module.exports = {
+  newAuthor,
   newCourse,
   courses,
-  authors
+  authors,
+  pokedex,
 };

@@ -6,6 +6,18 @@ export function loadAuthorsSucess(authors) {
   return { type: types.LOAD_AUTHORS_SUCCESS, authors };
 }
 
+export function createAuthorsSucess(authors) {
+  return { type: types.CREATE_AUTHORS_SUCCESS, authors };
+}
+
+export function updateAuthorsSucess(authors) {
+  return { type: types.UPDATE_AUTHORS_SUCCESS, authors };
+}
+
+export function deleteAuthorsSucess(authors) {
+  return { type: types.DELETE_AUTHORS_SUCCESS, authors };
+}
+
 export function loadAuthors() {
   return function (dispatch) {
     dispatch(beginApiCall());
