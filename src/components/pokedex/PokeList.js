@@ -2,10 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 
 export default function PokeList({ pokemons }) {
-  if (!pokemons || pokemons.length === 0) {
-    return <p>No pokemons to show.</p>;
-  }
-
+  
+    
   return (
     <table className="table">
       <thead>
@@ -21,6 +19,7 @@ export default function PokeList({ pokemons }) {
             <td>{poki.name}</td>
             <td>{poki.color}</td>
             <td>{poki.element}</td>
+            
           </tr>
         ))}
       </tbody>
