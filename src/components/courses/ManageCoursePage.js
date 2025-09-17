@@ -59,7 +59,7 @@ function formIsValid() {
   }
 
 
-  function handleSave(event) {
+  function handleSave(event){
     event.preventDefault();
     if (!formIsValid()) return;
     setSaving(true);

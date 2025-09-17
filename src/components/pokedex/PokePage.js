@@ -24,7 +24,7 @@ export default function DifferentHello() {
         className="btn btn-primary add-course"
         onClick={handleAddCourse}
       >
-        Add Course
+        Add Pokemon to Pokedex
       </button>
 
       <PokeList pokemons={pokemons} />

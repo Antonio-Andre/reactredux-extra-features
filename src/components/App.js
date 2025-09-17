@@ -7,6 +7,7 @@ import PageNotFound from "./PageNotFound";
 import CoursePage from "./courses/CoursePage";
 import ManageCoursePage from "./courses/ManageCoursePage";
 import ManageAuthorPage from "./authors/ManageAuthorPage";
+import AuthorPage from "./authors/AuthorPage";
 import DifferentHello from "./pokedex/PokePage";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -17,10 +18,11 @@ export default function App() {
       <Header/>
       <Routes>
         <Route path="/" element={<HomePage/>} />
-        <Route path="/courses" element={<CoursePage/>} />
         <Route path="/about" element={<AboutPage/>} />
+        <Route path="/courses" element={<CoursePage/>} />
         <Route path="/course/:slug?" element={<ManageCoursePage/>} /> 
-        <Route path="/authors" element ={<ManageAuthorPage/>} />
+        <Route path="/authors" element={<AuthorPage />} />
+        <Route path="/author/:id?" element={<ManageAuthorPage />} />
         <Route path="/pokedex" element ={<DifferentHello/>} />
         <Route element={<PageNotFound/>} />
       </Routes>

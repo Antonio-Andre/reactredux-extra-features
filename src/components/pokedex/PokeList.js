@@ -2,8 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 
 export default function PokeList({ pokemons }) {
-  
-    
   return (
     <table className="table">
       <thead>
@@ -14,12 +12,11 @@ export default function PokeList({ pokemons }) {
         </tr>
       </thead>
       <tbody>
-        {pokemons.map((poki) => (
+        {pokemons.map(poki => (
           <tr key={poki.id}>
             <td>{poki.name}</td>
             <td>{poki.color}</td>
             <td>{poki.element}</td>
-            
           </tr>
         ))}
       </tbody>
@@ -28,5 +25,5 @@ export default function PokeList({ pokemons }) {
 }
 
 PokeList.propTypes = {
-  pokemons: PropTypes.array.isRequired,
+  pokemons: PropTypes.array.isRequired
 };

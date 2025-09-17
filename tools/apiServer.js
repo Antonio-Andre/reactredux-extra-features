@@ -54,6 +54,25 @@ server.post("/courses/", function (req, res, next) {
   }
 });
 
+server.post("/authors/", (req, res, next) => {
+  const error = validateAuthor(req.body);
+  if (error) {
+    res.status(400).json({ error });
+    return;
+  }
+
+  if (!req.body.id) {
+    const authors = router.db.get("authors").value();
+    const maxId = authors.reduce((max, a) => Math.max(max, a.id || 0), 0);
+    req.body.id = maxId + 1;
+  }
+
+  req.body.createdAt = Date.now();
+  next();
+});
+
+
+
 // Use default router
 server.use(router);
 
@@ -74,8 +93,13 @@ function createSlug(value) {
 }
 
 function validateCourse(course) {
-  if (!course.title) return "Title is required.";
-  if (!course.authorId) return "Author is required.";
-  if (!course.category) return "Category is required.";
+  if (!course.title) return "Title is required!";
+  if (!course.authorId) return "Author is required!";
+  if (!course.category) return "Category is required!";
+  return "";
+}
+
+function validateAuthor(author) {
+  if (!author.name) return "Name is required!";
   return "";
 }

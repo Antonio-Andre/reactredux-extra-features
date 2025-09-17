@@ -6,16 +6,16 @@ export function loadAuthorsSucess(authors) {
   return { type: types.LOAD_AUTHORS_SUCCESS, authors };
 }
 
-export function createAuthorsSucess(authors) {
-  return { type: types.CREATE_AUTHORS_SUCCESS, authors };
+export function createAuthorSucess(author) {
+  return { type: types.CREATE_AUTHOR_SUCCESS, author };
 }
 
-export function updateAuthorsSucess(authors) {
-  return { type: types.UPDATE_AUTHORS_SUCCESS, authors };
+export function updateAuthorSucess(author) {
+  return { type: types.UPDATE_AUTHOR_SUCCESS, author };
 }
 
-export function deleteAuthorsSucess(authors) {
-  return { type: types.DELETE_AUTHORS_SUCCESS, authors };
+export function deleteAuthorSucess(author) {
+  return { type: types.DELETE_AUTHOR_SUCCESS, author };
 }
 
 export function loadAuthors() {
@@ -30,5 +30,22 @@ export function loadAuthors() {
         dispatch(apiCallError(error));
         throw error;
       });
+  };
+}
+
+export function saveAuthors(author) {
+  return function (dispatch) {
+    console.log("Thunk called with author:", author);
+    dispatch(beginApiCall());
+
+    return authorApi
+      .saveAuthor(author)
+      .then(savedAuthor => {
+        console.log("Thunk cnow has the savedAuthor:", savedAuthor);
+        author.id
+          ? dispatch(updateAuthorSucess(savedAuthor))
+          : dispatch(createAuthorSucess(savedAuthor));
+      })
+      .catch(error => console.error("Thunk error:", error));
   };
 }
