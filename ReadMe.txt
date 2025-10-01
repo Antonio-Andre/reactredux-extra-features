@@ -14,3 +14,6 @@ Here I will take a project that I coded from scratch following a tutorial from C
 - I've created a pokemon category because I haven't messed with creating data and the api from scratch.
 This also allows me to do temporary experiments for the solo porpose of learning react and redux on a deeper level than just hammering code until it starts working for some miracle. 
 And that's the only reason it seems out of the theme of this project.
+
+
+123 Test
