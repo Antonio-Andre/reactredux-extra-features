@@ -33,18 +33,17 @@ export function loadAuthors() {
   };
 }
 
-export function saveAuthors(author) {
+export function saveAuthor(author) {
   return function (dispatch) {
-    console.log("Thunk called with author:", author);
     dispatch(beginApiCall());
 
     return authorApi
-      .saveAuthor(author)
+      .saveAuthorApi(author)
       .then(savedAuthor => {
-        console.log("Thunk cnow has the savedAuthor:", savedAuthor);
         author.id
           ? dispatch(updateAuthorSucess(savedAuthor))
           : dispatch(createAuthorSucess(savedAuthor));
+          return savedAuthor;
       })
       .catch(error => console.error("Thunk error:", error));
   };
